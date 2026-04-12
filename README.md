@@ -1,91 +1,88 @@
 # 🚀 AI Text Summarizer API (FastAPI + BART)
 
-Dự án này là một hệ thống tóm tắt văn bản tiếng Anh tự động dựa trên trí tuệ nhân tạo (AI). Hệ thống sử dụng mô hình ngôn ngữ lớn để trích xuất những ý chính từ các đoạn văn bản dài, giúp tiết kiệm thời gian đọc và nắm bắt thông tin.
+Dự án này là một hệ thống tóm tắt văn bản tiếng Anh tự động dựa trên trí tuệ nhân tạo (AI), được thực hiện cho môn học **Tư duy tính toán**.
 
 ---
 
-## 🌟 Tính năng chính
-* **Tóm tắt thông minh:** Sử dụng mô hình `facebook/bart-large-cnn` chuyên dụng cho tóm tắt tin tức.
-* **API Hiệu năng cao:** Xây dựng trên nền tảng FastAPI giúp xử lý yêu cầu nhanh chóng.
-* **Giao diện Swagger UI:** Cho phép thử nghiệm API trực tiếp tại đường dẫn `/docs`.
-* **Public Access:** Tích hợp hướng dẫn sử dụng Pinggy/Localhost.run để chia sẻ link qua Internet.
+## 👤 Thông tin sinh viên
+* **Họ và tên:** Lê Nguyễn Gia Huy
+* **Mã số sinh viên (MSSV):** 24120061
+* **Trường:** Đại học Khoa học Tự nhiên TP.HCM (VNU-HCMUS)
+* **Khoa:** Công nghệ Thông tin
+* **Môn học:** Tư duy tính toán
+---
+
+## 🤖 Mô hình AI
+* **Tên mô hình:** `facebook/bart-large-cnn`
+* **Liên kết trên Hugging Face:** [https://huggingface.co/facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn)
+* **Mô tả:** Mô hình BART (Bidirectional and Auto-Regressive Transformers) được huấn luyện chuyên biệt trên tập dữ liệu CNN/Daily Mail để thực hiện tóm tắt văn bản theo dạng trích xuất ý chính (Abstractive Summarization).
 
 ---
 
-## 🛠️ Công nghệ sử dụng
-* **Ngôn ngữ:** Python 3.9+
-* **Framework:** [FastAPI](https://fastapi.tiangolo.com/)
-* **AI Engine:** [Hugging Face Transformers](https://huggingface.co/docs/transformers/index)
-* **Model:** BART Large CNN
-* **Tunneling:** Pinggy / Localhost.run
+## 📝 Mô tả chức năng
+Hệ thống cung cấp một giao diện API cho phép:
+1. **Kiểm tra trạng thái:** Đảm bảo máy chủ và mô hình đã sẵn sàng hoạt động.
+2. **Tóm tắt văn bản:** Tự động thu gọn các đoạn văn bản dài thành một đoạn văn ngắn súc tích mà vẫn giữ nguyên được nội dung cốt lõi của thông tin.
 
 ---
 
-## ⚙️ Cài đặt & Cấu hình
+## ⚙️ Hướng dẫn cài đặt thư viện
 
-Để dự án hoạt động ổn định, vui lòng tuân thủ các bước thiết lập môi trường ảo dưới đây:
+Yêu cầu máy tính đã cài đặt Python 3.9+. Sau khi tạo và kích hoạt môi trường ảo (`venv`), hãy chạy lệnh sau để cài đặt các thư viện cần thiết:
 
-### 1. Khởi tạo môi trường ảo (venv)
-```bash
-python -m venv venv
-```
-
-### 2. Kích hoạt môi trường
-* **Windows:**
-  ```powershell
-  .\venv\Scripts\activate
-  ```
-* **Linux/Mac:**
-  ```bash
-  source venv/bin/activate
-  ```
-
-### 3. Cài đặt thư viện
 ```bash
 pip install fastapi uvicorn transformers torch requests
 ```
 
 ---
 
-## 🚀 Hướng dẫn vận hành
+## 🚀 Hướng dẫn chạy chương trình
 
-Hệ thống cần chạy song song hai tiến trình (Terminal) để có thể truy cập từ xa.
-
-### Bước 1: Khởi động Server (Terminal 1)
+### 1. Khởi chạy Server cục bộ (Local)
+Mở Terminal và gõ lệnh khởi động máy chủ FastAPI:
 ```bash
 python -m uvicorn main:app --reload
 ```
-* Sau khi chạy, API sẽ sẵn sàng tại: `http://127.0.0.1:8000`
+Sau đó, bạn có thể truy cập vào giao diện thử nghiệm trực quan tại: `http://127.0.0.1:8000/docs`
 
-### Bước 2: Tạo đường hầm Public (Terminal 2)
-Mở một cửa sổ mới và gõ lệnh sau để lấy link truy cập từ Internet:
+### 2. Tạo đường link Public (Truy cập từ xa)
+Để người khác có thể truy cập API của bạn qua Internet (dành cho demo), mở Terminal thứ hai và chạy:
 ```bash
 ssh -p 443 -R0:127.0.0.1:8000 pinggy@a.pinggy.io
 ```
-* Copy link `https://...` hiện ra và thêm `/docs` vào cuối để sử dụng giao diện web.
 
 ---
 
-## 🎥 Video Demo (60s)
+## 📡 Hướng dẫn gọi API và Ví dụ
 
-[Kéo thả video demo của bạn vào đây để GitHub tự tạo link]
+### Endpoint 1: Kiểm tra trạng thái
+* **URL:** `/health`
+* **Method:** `GET`
+* **Ví dụ Response:**
+  ```json
+  { "status": "ok", "message": "Server is running perfectly!" }
+  ```
+
+### Endpoint 2: Tóm tắt văn bản
+* **URL:** `/generate`
+* **Method:** `POST`
+* **Ví dụ Request (JSON):**
+  ```json
+  {
+    "text": "Artificial intelligence is a field of computer science that focuses on creating systems capable of performing tasks that typically require human intelligence..."
+  }
+  ```
+* **Ví dụ Response:**
+  ```json
+  {
+    "original_length": 1500,
+    "summary_text": "AI focuses on creating systems that mimic human intelligence tasks."
+  }
+  ```
 
 ---
 
-## 📂 Cấu trúc dự án
-```text
-API_PROJECT/
-├── main.py            # Code xử lý chính (FastAPI & AI Model)
-├── test_API.py        # Script kiểm tra API từ Client
-├── requirements.txt   # Danh sách thư viện (nếu có)
-├── README.md          # Tài liệu hướng dẫn này
-└── venv/              # Môi trường ảo (đã được loại bỏ khỏi Git)
-```
+## 🎥 Video Demo
+Dưới đây là video hướng dẫn sử dụng và kết quả thực tế của hệ thống:
 
----
-
-## 👤 Tác giả
-* **Họ và tên:** [Tên của bạn]
-* **MSSV:** [Mã số sinh viên của bạn]
-* **Đơn vị:** Khoa Công nghệ Thông tin - Trường ĐH Khoa học Tự nhiên (VNU-HCM)
-* **Môn học:** Tư duy tính toán
+[Kéo thả file video demo của bạn vào đây để GitHub tự tạo link hiển thị]
