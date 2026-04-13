@@ -7,10 +7,11 @@ Dự án được thực hiện phục vụ cho đồ án môn học **Tư duy t
 ---
 
 ## 👨‍🎓 Thông tin sinh viên
-* **Họ và tên:** [Điền Họ và Tên của bạn]
-* **Mã số sinh viên (MSSV):** [Điền MSSV]
+* **Họ và tên:** Lê Nguyễn Gia Huy
+* **Mã số sinh viên (MSSV):** 24120061
 * **Trường:** Đại học Khoa học Tự nhiên TP.HCM (VNU-HCMUS)
 * **Khoa:** Công nghệ Thông tin
+* **Lớp:**24CTT3
 
 ---
 
