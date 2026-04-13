@@ -11,7 +11,7 @@ Dự án được thực hiện phục vụ cho đồ án môn học **Tư duy t
 * **Mã số sinh viên (MSSV):** 24120061
 * **Trường:** Đại học Khoa học Tự nhiên TP.HCM (VNU-HCMUS)
 * **Khoa:** Công nghệ Thông tin
-* **Lớp:**24CTT3
+* **Lớp:** 24CTT3
 
 ---
 
