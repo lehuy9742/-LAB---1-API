@@ -85,4 +85,12 @@ ssh -p 443 -R0:127.0.0.1:8000 pinggy@a.pinggy.io
 ## 🎥 Video Demo
 Dưới đây là video hướng dẫn sử dụng và kết quả thực tế của hệ thống:
 
-[Kéo thả file video demo của bạn vào đây để GitHub tự tạo link hiển thị]
+
+
+https://github.com/user-attachments/assets/1e97d117-3be7-4b06-bd98-005e95233918
+
+
+
+
+
+
